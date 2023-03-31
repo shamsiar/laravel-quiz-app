@@ -1,0 +1,20 @@
+/* Add here all your CSS customizations */
+#header .header-nav-main nav>ul>li>a {
+    font-size: 14px;
+}
+
+.mcq-list {
+    list-style: none;
+    position: relative
+}
+
+.jst-hours {
+    display: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 25px;
+    height: 15px;
+    accent-color: green;
+}
