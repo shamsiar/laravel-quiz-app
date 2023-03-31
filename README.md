@@ -5,6 +5,10 @@
 
 ## Demo: [APP](https://dev8.estheticingenious.com/unicminds/)
 
+## Credentials: 
+    Admin: admin@admin.com      password: 123456
+    User:  user01@example.com   password: 123456
+
 
 # Installation
 1. Clone this repo
