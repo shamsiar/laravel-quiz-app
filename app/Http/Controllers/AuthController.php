@@ -21,15 +21,11 @@ class AuthController extends Controller
         return view('frontend.login');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    // public function registration()
-    // {
-    //     return view('auth.registration');
-    // }
+    public function register()
+    {
+        return view('frontend.register');
+    }
+
 
     /**
      * Write code on Method
@@ -77,7 +73,13 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            return redirect()->route('home')->withSuccess('Great! You have Registered Successfully.');
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials)) {
+                return redirect()->route('home')->withSuccess('You have Registered Successfully.');
+            }
+
+            // return redirect()->route('home')->withSuccess('Great! You have Registered Successfully.');
         } else {
             return redirect('login')->withSuccess('Password does not match.');
         }
@@ -94,6 +96,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }

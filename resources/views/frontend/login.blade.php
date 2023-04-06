@@ -1,117 +1,112 @@
-@extends('frontend.layout.template')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<section class="page-header page-header-classic" style="padding-top: 100px;">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <ul class="breadcrumb">
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li class="active">Login</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col p-static">
-                <span class="page-header-title-border visible" style="width: 145.509px;"></span>
-                <h1 data-title-border="">Login | Registration</h1>
+<head>
+    <title>Login | UNICMINDS </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ asset('frontend/img/apple-touch-icon.png') }}">
 
-            </div>
-        </div>
-    </div>
-</section>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/css-hamburgers/hamburgers.min.css') }}">
 
-<div class="container">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/main.css') }}">
 
-    <div class="row">
-        <div class="col">
+</head>
 
-            <div class="featured-boxes">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="featured-box featured-box-primary text-left mt-5">
-                            <div class="box-content">
-                                <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Log In</h4>
-                                <form action="{{ route('login.post') }}" id="frmSignIn" method="post" novalidate>
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            <label class="font-weight-bold text-dark text-2">E-mail Address</label>
-                                            <input type="text" name="email" class="form-control form-control-lg">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            <a class="float-right" href="#">(Lost Password?)</a>
-                                            <label class="font-weight-bold text-dark text-2">Password</label>
-                                            <input type="password" name="password" class="form-control form-control-lg">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-lg-6">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="rememberme">
-                                                <label class="custom-control-label text-2" for="rememberme">Remember Me</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-lg-6">
-                                            <input type="submit" value="Login" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+                <div class="login100-pic p-5">
+                    <span class="login100-form-title">
+                        Certificate Exams for Kids
+                    </span>
+
+                    <div>
+                        <ul>
+                            <li>Free coding exams for kids</li>
+                            <li>Sign-up/Sign-in</li>
+
+                            <li>Choose a programming language you want to test
+                                yourself in and take the test.</li>
+
+                            <li>Check your knowledge and improve</li>
+                            <li>Click here to check our coding classes for kids,
+                                tweens, and students.</li>
+                        </ul>
+
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="featured-box featured-box-primary text-left mt-5">
-                            <div class="box-content">
-                                <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Register New User</h4>
-                                <form action="{{ route('register.post') }}" id="frmSignUp" method="post" class="needs-validation">
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            <label class="font-weight-bold text-dark text-2">Full Name</label>
-                                            <input type="text" name="name" class="form-control form-control-lg" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            <label class="font-weight-bold text-dark text-2">E-mail Address</label>
-                                            <input type="text" name="email" class="form-control form-control-lg" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-lg-6">
-                                            <label class="font-weight-bold text-dark text-2">Password</label>
-                                            <input type="password" name="password" class="form-control form-control-lg" required>
-                                        </div>
-                                        <div class="form-group col-lg-6">
-                                            <label class="font-weight-bold text-dark text-2">Re-enter Password</label>
-                                            <input type="password" name="repassword" class="form-control form-control-lg" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-lg-9">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="terms">
-                                                <label class="custom-control-label text-2" for="terms">I have read and agree to the <a href="#">terms of service</a></label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-lg-3">
-                                            <input type="submit" value="Register" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
+                <form action="{{ route('login.post') }}" method="post" class="login100-form validate-form p-5 gradient-custom-2">
+                    @csrf
+                    <span class="login100-form-title">
+                        Hello There! <br>
+                        Sign In
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        <span class="txt1">
+                            Forgot
+                        </span>
+                        <a class="txt2" href="#">
+                            Password?
+                        </a>
+                    </div>
+
+                    <div class="text-center p-t-10">
+                        <a class="txt2" href="{{ route('register') }}">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-</div>
+    <!--===============================================================================================-->
+    <script src="{{ asset('frontend/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/vendor/select2/select2.min.js') }}"></script>
 
-@endsection
+    <script src="{{ asset('frontend/js/main.js') }}"></script>
+
+</body>
+
+</html>
