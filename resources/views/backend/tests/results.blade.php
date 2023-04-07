@@ -30,6 +30,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>User</th>
                             <th>Test Title</th>
                             <th>Score</th>
                             <th>Result</th>
@@ -44,6 +45,7 @@
                     <tbody>
                         <tr>
                             <td>{{ $i++ }}</td>
+                            <td>{{ $result->user->name }}</td>
                             <td>{{ $result->test->title }}</td>
                             <td>{{ $result->score }}</td>
                             <td>

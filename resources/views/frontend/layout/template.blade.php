@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <div class="body">
+    <div class="body" style="background: url({{ asset('frontend/img/memphis-colorful.png') }}) repeat transparent;">
+
 
         {{-- @include('frontend.includes.sidebar') --}}
         @include('frontend.includes.navbar')

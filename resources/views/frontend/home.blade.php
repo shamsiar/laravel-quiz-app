@@ -11,12 +11,7 @@
 
                 <h1 style="">Online Coding Tests for Kids & Teens</h1>
             </div>
-            {{-- <div class="col-md-12 align-self-center order-1">
-                    <ul class="breadcrumb breadcrumb-light d-block text-center">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Features</li>
-                    </ul>
-                </div> --}}
+
         </div>
     </div>
 </section>

@@ -44,3 +44,43 @@
     })
 
 </script>
+
+<script>
+    $(document).ready(function() {
+
+        let i = 1;
+        let str = '.q-' + i;
+        // let result = class.concat(i);
+        $(str).show();
+
+        $(".next").click(function() {
+
+            $(str).hide();
+
+            i = i + 1;
+            str = '.q-' + i;
+
+            $(str).show();
+            console.log(i);
+            if (i === total) {
+
+                $(".next").html('Submit Answer');
+                $(".next").removeClass('btn-tertiary');
+                $(".next").addClass('btn-success');
+
+            }
+
+            if (i > total) {
+                this.type = 'submit';
+            }
+
+            if (i === total) {
+
+                this.value = 'Submit Answer';
+                // alert('submit')
+            }
+
+        });
+    });
+
+</script>

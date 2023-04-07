@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Result;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use BayAreaWebPro\MultiStepForms\MultiStepForm;
 
 class PagesController extends Controller
 {
@@ -110,8 +111,10 @@ class PagesController extends Controller
         }
     }
 
+
     public function result(Request $request)
     {
+        // dd($request);
         $test = Test::find($request->test_id);
         $user = Auth::user()->id;
         $score = 0;
