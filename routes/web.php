@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Middleware\Admin;
+use BayAreaWebPro\MultiStepForms\MultiStepForm;
 // Backend Controllers
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
@@ -24,10 +25,10 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tests', [PagesController::class, "tests"])->name('home');
     Route::get('/test/{id}', [PagesController::class, "viewTest"])->name('test.view');
     Route::get('/start-test/{id}', [PagesController::class, "startTest"])->name('test.start');
     Route::post('/test-result', [PagesController::class, "result"])->name('test.result');
-    Route::get('/tests', [PagesController::class, "tests"])->name('home');
     Route::get('/about-us', [PagesController::class, "aboutUs"])->name('about_us');
     Route::get('/profile', [PagesController::class, "profile"])->name('profile');
     Route::post('/profile-update/{id}', [PagesController::class, "profileUpdate"])->name('profile.update');

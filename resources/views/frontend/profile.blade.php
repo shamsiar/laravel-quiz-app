@@ -22,133 +22,123 @@
     </div>
 </section>
 
-<div class="container py-4">
+<section class="section border-0 my-0 py-0" style="background: none;">
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="tabs tabs-vertical tabs-left">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#profile" data-toggle="tab">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#results" data-toggle="tab">Test Results</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certificate" data-toggle="tab">Certificate</a>
-                    </li>
+    <div class="tabs tabs-center">
 
-                </ul>
-                <div class="tab-content">
+        <ul class="nav nav-tabs justify-content-center border-0">
+            <li class="nav-item active">
+                <a class="nav-link active" href="#profile" data-toggle="tab"><strong>Profile</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#results" data-toggle="tab"><strong>Test Results</strong></a>
 
-                    <div id="profile" class="tab-pane active">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#certificate" data-toggle="tab"><strong>Certificates</strong></a>
 
-                        <div class="col-lg-9">
+            </li>
+        </ul>
 
-                            <div class="overflow-hidden mb-1">
-                                <h2 class="font-weight-normal text-7 mb-3"><strong class="font-weight-extra-bold">My</strong> Profile</h2>
+        <div class="tab-content p-0">
+
+            <div id="profile" class="tab-pane active">
+
+                <div class="col-lg-10 col-md-10 mx-auto profile-tabs p-5">
+
+                    <div class="overflow-hidden mb-1">
+                        <h2 class="font-weight-normal text-center text-7 my-3"><strong class="font-weight-extra-bold">My</strong> Profile</h2>
+                    </div>
+
+                    <form action="{{ route('profile.update', $user->id) }}" method="post" class="needs-validation">
+                        @csrf
+                        <div class="form-group row">
+
+                            <label class="col-md-4 font-weight-bold text-dark col-form-label form-control-label text-4 required">Full name</label>
+                            <div class="col-md-8">
+                                <input class="form-control" name="name" required type="text" value="{{ $user->name }}">
+
                             </div>
-
-                            <form action="{{ route('profile.update', $user->id) }}" method="post" class="needs-validation">
-                                @csrf
-                                <div class="form-group row">
-                                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-4 required">Full name</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" name="name" required type="text" value="{{ $user->name }}">
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-4 required">Email</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" required type="email" name="email" value=" {{ $user->email }}">
-
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-4 required">Password</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" required name="password" type="password" value="">
-
-                                    </div>
-                                </div>
-                                {{-- <div class="form-group row">
-                                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Confirm password</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" required type="password" value="">
-                                    </div>
-                                </div> --}}
-                                <div class="form-group row">
-                                    <div class="form-group col-lg-9">
-
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <input type="submit" value="Update Profile" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
-                                    </div>
-                                </div>
-                            </form>
-
                         </div>
 
-                    </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 font-weight-bold text-dark col-form-label form-control-label text-4 required">Email</label>
+                            <div class="col-md-8">
+                                <input class="form-control" required type="email" name="email" value=" {{ $user->email }}">
 
-                    <div id="results" class="tab-pane">
 
-                        <div class="overflow-hidden mb-1">
-                            <h2 class="font-weight-normal text-7 mb-3"><strong class="font-weight-extra-bold">Test</strong> Results</h2>
+                            </div>
                         </div>
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Test Title</th>
-                                    <th>Score</th>
-                                    <th>Result</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            @php
-                            $i = 1;
-                            @endphp
-                            @foreach ($results as $result)
-                            <tbody>
-                                <tr>
-                                    <td>{{ $i++ }}</td>
-                                    <td>{{ $result->test->title }}</td>
-                                    <td>{{ $result->score }}</td>
-                                    <td class="text-tertiary font-weight-bold">{{ $result->is_pass ? 'PASS' : 'FAIL' }}</td>
+                        <div class="form-group row">
+                            <label class="col-md-4 font-weight-bold text-dark col-form-label form-control-label text-4 required">Password</label>
+                            <div class="col-md-8">
+                                <input class="form-control" required name="password" type="password" value="">
 
+                            </div>
+                        </div>
 
-                                    <td>{{ date('d F Y', strtotime($result->created_at)) }}</td>
+                        <div class="form-group row">
+                            <div class="form-group col-6 mx-auto text-center">
+                                <input type="submit" value="Update Profile" class="btn btn-success btn-modern" data-loading-text="Loading...">
+                            </div>
+                        </div>
+                    </form>
 
+                </div>
 
+            </div>
 
+            <div id="results" class="tab-pane">
+                <div class="col-lg-10 col-md-10 mx-auto profile-tabs p-5">
 
-                                </tr>
-
-                            </tbody>
-
-                            @endforeach
-
-                        </table>
-
+                    <div class="overflow-hidden mb-1">
+                        <h2 class="font-weight-normal text-center text-7 my-3"><strong class="font-weight-extra-bold">Test</strong> Results</h2>
                     </div>
-                    <div id="certificate" class="tab-pane">
-                        <p>Certificate</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-                    </div>
+
+                    <table class="table table-responsive text-dark table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Test Title</th>
+                                <th>Score</th>
+                                <th>Result</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        @php
+                        $i = 1;
+                        @endphp
+                        @foreach ($results as $result)
+                        <tbody>
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $result->test->title }}</td>
+                                <td>{{ $result->score }}</td>
+                                <td class="text-tertiary font-weight-bold">{{ $result->is_pass ? 'PASS' : 'FAIL' }}</td>
+
+
+                                <td>{{ date('d F Y', strtotime($result->created_at)) }}</td>
+
+
+
+
+                            </tr>
+
+                        </tbody>
+
+                        @endforeach
+
+                    </table>
                 </div>
             </div>
+            <div id="certificate" class="tab-pane">
+                <p>Certificate</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+            </div>
         </div>
-
-
-
     </div>
 
-</div>
+</section>
 
 @endsection

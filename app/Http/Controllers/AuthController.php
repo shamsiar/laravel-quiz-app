@@ -18,6 +18,10 @@ class AuthController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+
+            return redirect()->route("home");
+        }
         return view('frontend.login');
     }
 
@@ -34,6 +38,7 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -42,6 +47,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            // dd(Auth::user()->is_admin);
             if (Auth::user()->is_admin) {
                 return redirect()->route('dashboard')->withSuccess('You have Successfully loggedin');
             } else {

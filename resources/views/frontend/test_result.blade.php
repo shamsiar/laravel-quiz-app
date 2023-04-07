@@ -66,6 +66,16 @@
                                 CERTIFICATE
                             </h4>
                             <hr>
+                            <div>
+                                <h3 style="padding: 15px;background: #fff;position: absolute;top: 203px;z-index: 1;left: 305px;font-size: 36px;">{{ Auth::user()->name }}</h3>
+
+
+                                <div style="padding: 15px;background: #fff;position: absolute;top: 278px;z-index: 1;left: 160px;font-size: 20px;width: 60%;">{{ $test->title }}</div>
+
+
+                                <img src="{{ asset('frontend/img/um/unicminds_certificate.jpg') }}" alt="Certificate" class="img-thumbnail img-fluid">
+                            </div>
+
 
                         </div>
                     </div>

@@ -1,6 +1,8 @@
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon" />
-<link rel="apple-touch-icon" href="{{ asset('frontend/img/apple-touch-icon.png') }}">
+<link rel="shortcut icon" href="{{ asset('frontend/img/um/favicon-UnicMinds.png') }}" type="image/x-icon" />
+
+
+{{-- <link rel="apple-touch-icon" href="{{ asset('frontend/img/apple-touch-icon.png') }}"> --}}
 
 <!-- Web Fonts  -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">

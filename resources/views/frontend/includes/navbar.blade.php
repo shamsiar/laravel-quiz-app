@@ -6,9 +6,7 @@
                     <div class="header-row">
                         <div class="header-logo">
                             <a href="{{ route('home') }}">
-                                <img alt="Porto" width="240" height="48" data-sticky-width="120" data-sticky-height="40" src="{{ asset('frontend/img/Logo-UnicMinds.png') }}">
-
-                                {{-- <img alt="Porto" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="{{ asset('frontend/img/logo-default-slim-dark.png') }}"> --}}
+                                <img alt="Porto" width="240" height="48" data-sticky-width="120" data-sticky-height="40" src="{{ asset('frontend/img/um/Logo-UnicMinds.png') }}">
                             </a>
                         </div>
                     </div>
