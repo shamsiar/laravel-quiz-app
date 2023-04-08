@@ -42,3 +42,14 @@ input[type="checkbox"] {
 section.section {
     background: none !important;
 }
+
+.thumb-info-price {
+    position: absolute;
+    top: 16px;
+    left: 6px;
+    padding: 0.6rem 1.7rem;
+    color: #FFF;
+    border-radius: 0 50px 50px 0;
+    transform: translate3d(-10px, 0, 0);
+    transition: ease transform 300ms;
+}

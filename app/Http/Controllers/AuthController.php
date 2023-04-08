@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -73,19 +74,25 @@ class AuthController extends Controller
 
         if ($request->password == $request->repassword) {
 
-            User::create([
+            $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password)
             ]);
 
-            $credentials = $request->only('email', 'password');
+            event(new Registered($user));
 
-            if (Auth::attempt($credentials)) {
-                return redirect()->route('home')->withSuccess('You have Registered Successfully.');
-            }
+            auth()->login($user);
 
-            // return redirect()->route('home')->withSuccess('Great! You have Registered Successfully.');
+            return redirect('/')->with('success', "Account successfully registered.");
+
+            // $credentials = $request->only('email', 'password');
+
+            // if (Auth::attempt($credentials)) {
+            //     return redirect()->route('home')->withSuccess('You have Registered Successfully.');
+            // }
+
+            return redirect()->route('home')->withSuccess('Great! You have Registered Successfully.');
         } else {
             return redirect('login')->withSuccess('Password does not match.');
         }

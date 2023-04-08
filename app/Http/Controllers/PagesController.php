@@ -9,7 +9,7 @@ use App\Models\Question;
 use App\Models\Result;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use BayAreaWebPro\MultiStepForms\MultiStepForm;
+use Image;
 
 class PagesController extends Controller
 {
@@ -27,6 +27,47 @@ class PagesController extends Controller
     public function aboutUs()
     {
         return view('frontend.about_us');
+    }
+    public function certificate()
+    {
+        $path = public_path('common/unicminds_certificate.jpg');
+
+        $img = Image::make($path);
+
+        $img->resize(800, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        $img->text('This is a example ', 16, 16);
+
+        $img->text($img, 400, 100, function ($font) {
+            $font->color('#000000');
+            $font->align('center');
+            // $font->angle(45);
+        });
+        //$img->blur(10);
+        $img->save(public_path('common/certificate-1.jpg'), 20);
+        // if (!File::exists($storageDir . '\'' . $request->image_file->getClientOriginalName())) {
+        //     File::makeDirectory($storageDir, 0755, true, true);
+        //     $img->save($storageDir . $request->text_to_add . '.png', 20);            /// Last param for image quality
+        // }
+
+
+        // $image = imagecreatefromjpeg($path);
+        // // dd($image);
+        // $color = imagecolorallocate($image, 255, 255, 255);
+        // $string = 'The string you want to write horizontally on the image';
+        // $fontSize = 3;
+        // $x = 300;
+        // $y = 400;
+
+        // // write on the image
+        // imagestring($image, $fontSize, $x, $y, $string, $color);
+
+        // // save the image
+        // imagejpeg($image,  $fileName = public_path('common/certificate-1.jpg'), $quality = 100);
+
+        return view('frontend.certificate');
     }
 
 

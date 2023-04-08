@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('frontend/img/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('frontend/img/um/favicon-UnicMinds.png') }}" type="image/x-icon" />
 
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -25,29 +24,36 @@
 
     <div class="limiter">
         <div class="container-login100">
+
+            <div class="my-3 text-center header-logo">
+
+                <img src="{{ asset('frontend/img/um/Logo-UnicMinds.png') }}" alt="LOGO" class="img-thumbnail img-fluid">
+            </div>
+
             <div class="wrap-login100">
 
                 <div class="login100-pic p-5">
                     <span class="login100-form-title">
-                        Certificate Exams for Kids
+                        Free Certificate Exams for Kids
                     </span>
 
                     <div>
                         <ul>
-                            <li>Free coding exams for kids</li>
-                            <li>Sign-up/Sign-in</li>
+                            <li>Sign-up/Sign-in (on the right ->)</li>
+                            <li>Choose a programming language you want to test yourself in and take the test.</li>
 
-                            <li>Choose a programming language you want to test
-                                yourself in and take the test.</li>
+                            <li>Students can validate their skills and obtain a certificate to stand out.</li>
 
-                            <li>Check your knowledge and improve</li>
-                            <li>Click here to check our coding classes for kids,
-                                tweens, and students.</li>
+                            <li>The certificate is awarded only to the students who score more than 70 Percent.</li>
+                            <li>Explore our <a href="https://unicminds.com/" style="color: #f27507;">coding classes for kids and teenagers</a>.</li>
+
+
                         </ul>
 
                     </div>
 
                 </div>
+
 
                 <form action="{{ route('register.post') }}" method="post" class="login100-form validate-form p-5 gradient-custom-2">
                     @csrf

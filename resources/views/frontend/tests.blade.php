@@ -33,9 +33,15 @@
                 <div class="row">
 
                     @foreach ($tests as $test)
-                    <div class="col-md-4 col-lg-4 mb-3 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                    <div class="col-md-4 col-lg-4 mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
 
-                        <div class="card card-background-image-hover border-0" style="background-image: url({{ asset('frontend/img/blog/square/blog-1.jpg') }});">
+                        <div class="card card-background-image-hover border-0 h-100" style="background-image: url({{ asset('frontend/img/blog/square/blog-1.jpg') }}); box-shadow: 0 3px 15px black;">
+
+                            <div class="thumb-info-price bg-color-secondary font-weight-semibold" style="">
+
+                                <span>FREE</span>
+                            </div>
+
                             <div class="card-body text-center p-5">
                                 <i class="icon-layers icons text-color-primary text-10"></i>
                                 <h4 class="card-title mt-2 mb-2 text-5 font-weight-bold">{{ $test->title }}</h4>
@@ -46,21 +52,7 @@
                     </div>
                     @endforeach
 
-
                 </div>
-
-                {{-- <div class="row">
-                        <div class="col">
-                            <ul class="pagination float-right">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class="fas fa-angle-left"></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
-                            </ul>
-                        </div>
-                    </div> --}}
 
             </div>
         </div>
